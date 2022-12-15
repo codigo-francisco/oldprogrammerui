@@ -1,22 +1,25 @@
 <div class="fx-login">
     <div class="login-shape">
         <p class="title" i18n>Welcome to OldProgrammer's Web</p>
-        <form>
+        <form [formGroup]="formLogin">
             <mat-form-field appearance="outline">
                 <mat-icon matPrefix>email</mat-icon>
                 <mat-label i18n>Email</mat-label>
-                <input matInput placeholder="Email" >
+                <input matInput placeholder="Email" formControlName="email" >
                 <mat-hint i18n>Write your email</mat-hint>
+                <mat-error *ngIf="email?.errors?.['required']">Email is required*</mat-error>
+                <mat-error *ngIf="email?.errors?.['email']">The field email has not an email format*</mat-error>
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-icon matPrefix>key</mat-icon>
                 <mat-label i18n>Password</mat-label>
-                <input matInput type="password" placeholder="Password" >
+                <input matInput type="password" placeholder="Password" formControlName="password" >
                 <mat-hint i18n>Write your password</mat-hint>
+                <mat-error *ngIf="password?.errors?.['required']">Password is required*</mat-error>
             </mat-form-field>
         </form>
-        <button type="button" color="primary" class="button-login" mat-raised-button i18n>Log in</button>
-        <p>
+        <button type="button" color="primary" class="button-login" [disabled]="formLogin.invalid" mat-raised-button i18n>Log in</button>
+        <p class="recovery-block">
             <a mat-flat-button class="recovery-password" href="#" i18n>Did you forget your password? Click <span class="login-here">here</span> to retrieve it</a>
         </p>
     </div>

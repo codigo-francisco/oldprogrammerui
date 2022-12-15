@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { PagesRoutes } from './routes/pages-routes';
 import { BaseAuthenticationComponent } from './authentication/base-authentication/base-authentication.component';
 import { MaterialModule } from '../shared/material/material.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { MaterialModule } from '../shared/material/material.module';
   imports: [
     CommonModule,
     RouterModule.forChild(PagesRoutes),
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule
   ],
   exports: [
     RouterModule
