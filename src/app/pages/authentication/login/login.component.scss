@@ -1,0 +1,37 @@
+.fx-login {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.title {
+    text-align: center;
+}
+
+.recovery-password:hover {
+    color: blue;
+}
+
+.login-shape {
+    width: 90%;
+    max-width:  600px;
+    height: 100%;
+    max-height: 350px;
+    background-color: white;
+    border-radius: 1em;
+    margin: 10px;
+    padding: 10px;
+}
+
+.button-login {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+mat-form-field {
+    width: 100%;
+}
