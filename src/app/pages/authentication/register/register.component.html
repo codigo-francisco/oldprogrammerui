@@ -1,0 +1,29 @@
+<div class="fx-register">
+    <div class="register-shape">
+        <p class="title">Register Page</p>
+        <form [formGroup]="formRegister">
+            <mat-form-field appearance="outline">
+                <mat-icon matPrefix>email</mat-icon>
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Email" formControlName="email" >
+                <mat-hint>Type your email</mat-hint>
+                <mat-error *ngIf="email?.errors?.['required']">Email is required*</mat-error>
+                <mat-error *ngIf="email?.errors?.['email']">The field email has not an email format*</mat-error>
+            </mat-form-field>
+            <mat-form-field class="password-input" appearance="outline">
+                <mat-icon matPrefix>key</mat-icon>
+                <mat-label i18n>Password</mat-label>
+                <input matInput type="password" placeholder="Password" formControlName="password" >
+                <mat-hint i18n>Type your password</mat-hint>
+                <mat-error *ngIf="password?.errors?.['required']">Password is required*</mat-error>
+                <mat-error *ngIf="password?.errors?.['minlength']">Password needs 8 characters*</mat-error>
+                <mat-error *ngIf="password?.errors?.['atLeastOneCharacter']">Password needs at least 1 character*</mat-error>
+                <mat-error *ngIf="password?.errors?.['atLeastOneNumber']">Password needs at least one number*</mat-error>
+                <mat-error *ngIf="password?.errors?.['atLeastOneSpecialCharacter']">Password needs at least one special character*</mat-error>
+            </mat-form-field>
+            <button type="button" color="primary" class="button-register" [disabled]="formRegister.invalid" mat-raised-button i18n>
+                <mat-icon matIconPrefix>save</mat-icon>
+                Register</button>
+        </form>
+    </div>
+</div>
