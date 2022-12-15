@@ -6,7 +6,7 @@
                 <mat-icon matPrefix>email</mat-icon>
                 <mat-label i18n>Email</mat-label>
                 <input matInput placeholder="Email" formControlName="email" >
-                <mat-hint i18n>Write your email</mat-hint>
+                <mat-hint i18n>Type your email</mat-hint>
                 <mat-error *ngIf="email?.errors?.['required']">Email is required*</mat-error>
                 <mat-error *ngIf="email?.errors?.['email']">The field email has not an email format*</mat-error>
             </mat-form-field>
@@ -14,14 +14,18 @@
                 <mat-icon matPrefix>key</mat-icon>
                 <mat-label i18n>Password</mat-label>
                 <input matInput type="password" placeholder="Password" formControlName="password" >
-                <mat-hint i18n>Write your password</mat-hint>
+                <mat-hint i18n>Type your password</mat-hint>
                 <mat-error *ngIf="password?.errors?.['required']">Password is required*</mat-error>
+                <mat-error *ngIf="password?.errors?.['minlength']">Password needs 8 characters*</mat-error>
             </mat-form-field>
+            <button type="button" color="primary" class="button-login" [disabled]="formLogin.invalid" mat-raised-button i18n>
+                <mat-icon matPrefix>login</mat-icon>
+                Log in</button>
         </form>
-        <button type="button" color="primary" class="button-login" [disabled]="formLogin.invalid" mat-raised-button i18n>Log in</button>
         <p class="recovery-block">
-            <a mat-flat-button class="recovery-password" href="#" i18n>Did you forget your password? Click <span class="login-here">here</span> to retrieve it</a>
+            <a mat-flat-button class="recovery-password" routerLink="../recovery" i18n>
+                Did you forget your password? Click <span class="login-here">here</span> to retrieve it</a>
         </p>
     </div>
-    <button type="button" color="warn" mat-raised-button i18n>Create your account</button>
+    <a color="warn" routerLink="../register" mat-raised-button i18n>Create your account</a>
 </div>
