@@ -21,7 +21,8 @@
                 <mat-error *ngIf="password?.errors?.['atLeastOneNumber']">Password needs at least one number*</mat-error>
                 <mat-error *ngIf="password?.errors?.['atLeastOneSpecialCharacter']">Password needs at least one special character*</mat-error>
             </mat-form-field>
-            <button type="button" color="primary" class="button-register" [disabled]="formRegister.invalid" mat-raised-button i18n>
+            <button type="button" color="primary" class="button-register" [disabled]="formRegister.invalid || isRegistrationInProcess"
+                (click)="registerNewUser()" mat-raised-button i18n>
                 <mat-icon matIconPrefix>save</mat-icon>
                 Register</button>
         </form>

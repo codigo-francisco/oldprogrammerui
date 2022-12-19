@@ -1,0 +1,1 @@
+export const EC_EMAIL_ALREADY_EXISTS: string = "EmailExists";
